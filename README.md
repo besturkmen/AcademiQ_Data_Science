@@ -20,7 +20,7 @@ Numeric Type Conversion: Several key numeric columns ('stars_count', 'forks_coun
 These steps ensure that the dataset is clean, consistently formatted, and ready for more in-depth exploratory data analysis or machine learning tasks.
 
 
-#Academic Data Science 02 EDA 
+# Academic Data Science 02 EDA 
 
 Veri Yükleme ve Kütüphane Kurulumu: Analiz için gerekli olan pandas, numpy, matplotlib.pyplot, seaborn ve scipy.stats kütüphaneleri içe aktarıldı. Ardından, ecommerce_synthetic.csv adlı veri seti bir Pandas DataFrame'e yüklendi ve ilk 5 satırı (df.head()) görüntülenerek veriye hızlı bir bakış atıldı.
 
