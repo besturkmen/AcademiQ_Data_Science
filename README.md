@@ -41,3 +41,33 @@ musteri_yasi: MCAR (rastgele eksik). Müşteri yaşı eksiklikleri tamamen rastg
 toplam_harcama: MAR ('aylik_gelir' ile ilişkili, p=0.0000). Toplam harcamadaki eksikliklerin aylık gelirle ilişkili olduğu, yani aylık gelirdeki belirli değerlerin toplam harcamanın eksik olma olasılığını etkilediği belirlendi.
 siparis_sayisi: MCAR (rastgele eksik). Sipariş sayısı eksiklikleri de tamamen rastgele olarak sınıflandırıldı.
 Bu adımlar, veri setinin genel yapısını anlamak, sayısal değişkenlerin dağılım özelliklerini keşfetmek ve eksik verilerin doğasını belirlemek için atılan temel adımlardır. Özellikle eksik veri mekanizmalarının anlaşılması, veri temizleme ve doldurma stratejileri için kritik öneme sahiptir.
+# Academic Data Science 04 
+Yemek Teslim Süreleri Tahmini - Regresyon Modeli
+Bu not defteri, Yemek Teslim Süreleri veri kümesi üzerinde makine öğrenimi tabanlı bir regresyon modeli oluşturmayı ve eğiterek teslimat sürelerini doğru bir şekilde tahmin etmeyi amaçlamaktadır.
+
+# İçindekiler
+Veri Yükleme ve Genel Bakış
+Veri Temizleme ve Ön İşleme
+Özellik Mühendisliği (Feature Engineering)
+Model Tanımlamaları
+
+1. Veri Yükleme ve Genel Bakış
+Food_Delivery_Times.csv dosyası Pandas DataFrame olarak yüklenmiştir.
+Sütun adları, okunabilirliği artırmak ve tutarlılık sağlamak amacıyla küçük harfe dönüştürülmüş ve özel karakterlerden arındırılmıştır.
+
+2. Veri Temizleme ve Ön İşleme
+Hedef değişken (delivery_time_min), string formatından sayısal (float) formata dönüştürülmüştür. Bu dönüşüm sırasında hatalı veya boş değerler NaN olarak işaretlenmiş ve ardından ilgili satırlar veri setinden çıkarılmıştır.
+Gereksiz olabilecek veya model eğitiminde doğrudan kullanılmayacak order_id gibi ID tabanlı sütunlar veri setinden kaldırılmıştır.
+
+3. Özellik Mühendisliği (Feature Engineering)
+bad_weather Özelliği: weather sütunundaki metinsel ifadeler analiz edilerek, 'rainy', 'stormy', 'foggy', 'snowy' gibi kötü hava koşullarını temsil eden yeni bir ikili (0 veya 1) özellik (bad_weather) oluşturulmuştur. Bu, modelin hava koşullarının teslimat süresi üzerindeki etkisini daha iyi öğrenmesine yardımcı olacaktır.
+Sayısal ve kategorik sütunlar ayrı ayrı belirlenmiştir (num_cols, cat_cols) bu, sonraki aşamalarda veri dönüşüm ve modelleme adımlarında kullanılacaktır.
+
+4. Model Tanımlamaları
+Teslimat sürelerini tahmin etmek için kullanılacak temel regresyon modelleri (LinearRegression, DecisionTreeRegressor, RandomForestRegressor) tanımlanmış ve bir Python sözlüğünde saklanmıştır. Bu, farklı modelleri kolayca karşılaştırmak için bir başlangıç noktası oluşturmaktadır.
+
+Sonraki Adımlar
+Veri ölçeklendirme ve kategorik özelliklerin kodlanması.
+Çapraz doğrulama ile model seçimi ve eğitimi.
+Model performansının değerlendirilmesi (MAE, MSE, R2).
+Hiperparametre optimizasyonu.
